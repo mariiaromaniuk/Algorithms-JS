@@ -1,1 +1,1 @@
-# Sorting-Algorithms-JS
+# Algorithms-JS
