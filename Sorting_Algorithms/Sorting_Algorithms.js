@@ -21,21 +21,6 @@ function bubbleSort(arr){
 
 
 
-// INSERTION SORT ------------------------------
-// Time: O(n^2), Space: O(1)
-function insertionSort(arr){
-  for (let i = 1; i < arr.length; i++){
-    let curr = arr[i];
-    for (let j = i-1; j >= 0 && arr[j] > curr; j--){
-        arr[j+1] = arr[j];
-    }
-    arr[j+1] = curr;
-  }
-  return arr;
-}
-
-
-
 // SELECTION SORT ------------------------------
 // Time: O(n^2), Space: O(1)
 function selectionSort(arr){
@@ -50,6 +35,21 @@ function selectionSort(arr){
        arr[i] = arr[minValIndex];
        arr[minValIndex] = temp; 
     }
+  }
+  return arr;
+}
+
+
+
+// INSERTION SORT ------------------------------
+// Time: O(n^2), Space: O(1)
+function insertionSort(arr){
+  for (let i = 1; i < arr.length; i++){
+    let curr = arr[i];
+    for (let j = i-1; j >= 0 && arr[j] > curr; j--){
+        arr[j+1] = arr[j];
+    }
+    arr[j+1] = curr;
   }
   return arr;
 }
