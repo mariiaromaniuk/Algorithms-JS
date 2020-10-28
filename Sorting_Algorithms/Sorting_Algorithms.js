@@ -1,5 +1,5 @@
 // BUBBLE SORT ------------------------------
-// Time: O(n^2), Space: O(1)
+// Time: Average O(n^2), Almost sorted array O(n); Space: O(1)
 function bubbleSort(arr){
   // variable to check if there were no swaps
   // for optimization of bubble sort on an almost sorted array
