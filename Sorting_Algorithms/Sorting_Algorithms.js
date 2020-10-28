@@ -42,15 +42,16 @@ function insertionSort(arr){
 // Time: O(n^2), Space: O(1)
 function selectionSort(arr){
   for (let i = 0; i < arr.length; i++){
-    let minIndex = i;
+    let minValIndex = i;
     for (let j = i+1; j < arr.length; j++){
-      if(arr[minIndex] > arr[j]){
-        minIndex = j;
-      }
+      if (arr[j] < arr[minValIndex])
+        minValIndex = j;
     }
-    let temp = arr[i];
-    arr[i] = arr[minIndex];
-    arr[minIndex] = temp;      
+    if (i !== minValIndex){ // we don't want to swap same index
+       let temp = arr[i];
+       arr[i] = arr[minValIndex];
+       arr[minValIndex] = temp; 
+    }
   }
   return arr;
 }
