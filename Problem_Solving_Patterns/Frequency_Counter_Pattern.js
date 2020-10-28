@@ -49,29 +49,6 @@ console.log(same(arr1, arr2));
 // an anagram of the first.  An anagram is a word, phrase or name formed by rearranging the 
 // letters of another, such as cinema & iceman.
 
-// OPTION 1
-function validAnagram(str1, str2){
-  ifn(str1.length !== str2.length)
-    return false;
-
-  const str1Map = {};
-  const str2Map = {};
-  
-  for (let values of str1)
-    str1Map[values] = (str1Map[values] || 0) + 1;
-
-  for (let values of str2)
-    str2Map[values] = (str2Map[values] || 0) + 1;
-
-  for (let keys in str1Map){
-    if (str1Map[keys] === str2Map[keys])
-      return true;
-    else 
-      return false;
-  }
-}
-
-// OPTION 2 --> more effecient
 function validAnagram(str1, str2){
   if (str1.length !== str2.length) 
     return false;
