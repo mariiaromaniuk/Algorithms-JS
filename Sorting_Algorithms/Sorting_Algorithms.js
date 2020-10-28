@@ -26,10 +26,8 @@ function bubbleSort(arr){
 function insertionSort(arr){
   for (let i = 1; i < arr.length; i++){
     let curr = arr[i];
-    let j = i-1;
-    while (j >= 0 && arr[j] > curr){
+    for (let j = i-1; j >= 0 && arr[j] > curr; j--){
         arr[j+1] = arr[j];
-        j--;
     }
     arr[j+1] = curr;
   }
@@ -47,7 +45,7 @@ function selectionSort(arr){
       if (arr[j] < arr[minValIndex])
         minValIndex = j;
     }
-    if (i !== minValIndex){ // we don't want to swap same index
+    if (i !== minValIndex){ // no need to swap same index
        let temp = arr[i];
        arr[i] = arr[minValIndex];
        arr[minValIndex] = temp; 
