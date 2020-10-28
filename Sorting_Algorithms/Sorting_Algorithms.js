@@ -1,14 +1,20 @@
 // BUBBLE SORT ------------------------------
 // Time: O(n^2), Space: O(1)
 function bubbleSort(arr){
-	for (let i = 0; i < arr.length; i++){
-  	for (let j = 0; j < arr.length-i-1; j++){
-    	if (arr[j] > arr[j+1]){
+  // variable to check if there were no swaps
+  // for optimization of bubble sort on an almost sorted array
+  let noSwaps;
+  for (let i = 0; i < arr.length; i++){
+    noSwaps = true;
+    for (let j = 0; j < arr.length-i-1; j++){
+      if (arr[j] > arr[j+1]){
       	let temp = arr[j];
         arr[j] = arr[j+1];
         arr[j+1] = temp;
+	noSwaps = false;
       }
     }
+    if (noSwaps) break;
   }
   return arr;
 }
