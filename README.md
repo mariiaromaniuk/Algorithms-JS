@@ -1,7 +1,7 @@
 # Data Structures and Algorithms  
 This repository is my personal collection of data structures and algorithms written in JavaScript. I will be updating this repository in the future to include interpretations of the algorithms in other languages.  
 
-
+![](BigO/bigO_chat.jpg)
 
 - __Logarithmic algorithm – O(logn):__ Runtime grows logarithmically in proportion to n.
 - __Linear algorithm – O(n):__ Runtime grows directly in proportion to n.
