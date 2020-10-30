@@ -10,6 +10,10 @@ function quickSort(arr, left = 0, right = arr.length-1){
   }
   return arr;
 }
+1. We take pivot value and traverse the rest of the values in the array and swap them between each other if they are less than pivot (like in bubble sort but not comparing them between each other but by comparing each next value with pivot value). 
+2. If we swap we increment swapIdx, if value greater than pivot value we do nothing. 
+3. When we are done with traversing we swap pivot with swapIdx and return a new pivot(swapIdx) to the quickSort function.
+
 
 // Pivot helper/partition
 // Works by selecting one element ('pivot') and finding the index where the pivot should end up in the sorted array
