@@ -167,6 +167,7 @@ console.log(`Maximum number of fruits: ${fruits_into_baskets(['A', 'B', 'C', 'B'
 
 // ---------------------------------------------------------------------------------------- 
 // Given a string, find the length of the longest substring which has no repeating characters.
+// Time: O(n) where n is the number of letters in the input string. Space: O(1).
 // Input: String="aabccbb"
 // Output: 3  -> the longest substring without any repeating characters is "abc".
 // Time: O(n), Space O(k) where k is the number of distinct characters in the input string.
