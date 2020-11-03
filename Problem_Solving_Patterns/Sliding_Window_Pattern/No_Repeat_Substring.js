@@ -4,7 +4,7 @@
 // Output: 3  -> the longest substring without any repeating characters is "abc".
 // Time: O(n), Space O(k) where k is the number of distinct characters in the input string.
 
-function non_repeat_substring(str) {
+function no_repeat_substring(str) {
   let windowStart = 0,
     maxLength = 0,
     charIndexMap = {};
@@ -28,6 +28,6 @@ function non_repeat_substring(str) {
 }
 
 // Test
-console.log(`Length of the longest substring: ${non_repeat_substring('aabccbb')}`);
-console.log(`Length of the longest substring: ${non_repeat_substring('abbbb')}`);
-console.log(`Length of the longest substring: ${non_repeat_substring('abccde')}`);
+console.log(`Length of the longest substring: ${no_repeat_substring('aabccbb')}`);
+console.log(`Length of the longest substring: ${no_repeat_substring('abbbb')}`);
+console.log(`Length of the longest substring: ${no_repeat_substring('abccde')}`);
