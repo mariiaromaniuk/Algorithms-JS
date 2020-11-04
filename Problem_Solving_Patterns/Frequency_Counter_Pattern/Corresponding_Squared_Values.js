@@ -36,6 +36,7 @@ function same(arr1, arr2){
   return true;
 }
 
+// Test
 let arr1 = [2, 2, 3, 4];
 let arr2 = [4, 9, 4, 16];
 let arr3 = [1, 4, 5, 16];
