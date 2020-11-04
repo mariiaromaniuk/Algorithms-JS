@@ -34,3 +34,5 @@ function length_of_longest_substring(arr, k) {
 console.log(length_of_longest_substring([0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1], 2));
 console.log(length_of_longest_substring([0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], 3));
 
+// Time: O(n), where ‘n’ is the count of numbers in the input array.
+// Space: O(1).
