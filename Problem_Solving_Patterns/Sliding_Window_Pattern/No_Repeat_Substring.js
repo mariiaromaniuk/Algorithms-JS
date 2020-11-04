@@ -1,8 +1,6 @@
 // Given a string, find the length of the longest substring which has no repeating characters.
-// Time: O(n) where n is the number of letters in the input string. Space: O(1).
 // Input: String="aabccbb"
 // Output: 3  -> the longest substring without any repeating characters is "abc".
-// Time: O(n), Space O(k) where k is the number of distinct characters in the input string.
 
 function no_repeat_substring(str) {
   let windowStart = 0,
@@ -31,3 +29,11 @@ function no_repeat_substring(str) {
 console.log(`Length of the longest substring: ${no_repeat_substring('aabccbb')}`);
 console.log(`Length of the longest substring: ${no_repeat_substring('abbbb')}`);
 console.log(`Length of the longest substring: ${no_repeat_substring('abccde')}`);
+
+
+// Time: O(n), where n is the number of letters in the input string.
+// Space O(k) where k is the number of distinct characters in the input string.
+// This also means k <= n, because in the worst case, the whole string might 
+// not have any repeating character so the entire string will be added to the HashMap. 
+// Since we have a fixed set of characters in the input string (26 English letters), 
+// space will be O(1); in this case, we can use a fixed-size array instead of the HashMap.
