@@ -29,7 +29,12 @@ function max_substring_with_k_distinct(str, k) {
   return maxLength;
 }
 
+
 // Test
 console.log(`Length of the longest substring: ${max_substring_with_k_distinct('araaci', 2)}`); // 4
 console.log(`Length of the longest substring: ${max_substring_with_k_distinct('araaci', 1)}`); // 2
 console.log(`Length of the longest substring: ${max_substring_with_k_distinct('cbbebi', 3)}`); // 5
+
+
+// Time: O(n), where ‘n’ is the number of characters in the input string.
+// Space: O(k), as we will be storing a maximum of ‘k + 1’ characters in the HashMap.
