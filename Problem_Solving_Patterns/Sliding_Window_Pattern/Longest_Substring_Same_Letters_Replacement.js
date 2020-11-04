@@ -39,3 +39,6 @@ function length_of_longest_substring(str, k) {
 console.log(length_of_longest_substring('aabccbb', 2));
 console.log(length_of_longest_substring('abbcb', 1));
 console.log(length_of_longest_substring('abccde', 1));
+
+// Time: O(n), where ‘n’ is the number of letters in the input string.
+// Space: O(1) -> to store each letter’s frequency in the HashMap, which is asymptotically O(1).
