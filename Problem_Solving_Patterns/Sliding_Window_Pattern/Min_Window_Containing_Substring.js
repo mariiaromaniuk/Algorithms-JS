@@ -55,6 +55,15 @@ function find_substring(str, pattern) {
 }
 
 // Test
-console.log(find_substring('aabdec', 'abc'));
+console.log(find_substring('aabdec', 'abc')); 
 console.log(find_substring('abdbca', 'abc'));
 console.log(find_substring('adcad', 'abc'));
+
+/*
+ Time: O(n + m)
+   ‘n’ and ‘m’ are the number of characters in the input string and the pattern respectively.
+ Space: O(m) 
+   In the worst case, the whole pattern can have distinct characters which will go into the HashMap. 
+   In the worst case, we also need O(n) space for the resulting substring, which will happen when 
+   the input string is a permutation of the pattern.
+*/
