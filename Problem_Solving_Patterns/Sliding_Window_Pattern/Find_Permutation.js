@@ -54,3 +54,10 @@ console.log(`Permutation exist: ${find_permutation('oidbcaf', 'abc')}`);
 console.log(`Permutation exist: ${find_permutation('odicf', 'dc')}`);
 console.log(`Permutation exist: ${find_permutation('bcdxabcdy', 'bcdyabcdx')}`);
 console.log(`Permutation exist: ${find_permutation('aaacb', 'abc')}`);
+
+/*
+ Time: O(n + m) 
+   ‘n’ and ‘m’ are the number of characters in the input string and the pattern respectively.
+ Space: O(m) 
+   In the worst case, the whole pattern can have distinct characters which will go into the HashMap.
+*/
