@@ -36,3 +36,7 @@ function fruits_into_baskets(fruits) {
 // Test
 console.log(`Maximum number of fruits: ${fruits_into_baskets(['A', 'B', 'C', 'A', 'C'])}`);
 console.log(`Maximum number of fruits: ${fruits_into_baskets(['A', 'B', 'C', 'B', 'B', 'C'])}`);
+
+
+// Time: O(n), where ‘n’ is the number of characters in the input array. 
+// Space: O(1) as there can be a maximum of three types of fruits stored in the frequency map.
