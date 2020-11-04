@@ -38,7 +38,6 @@ function find_word_concatenation(str, words) {
       }
       wordsSeen[word] += 1;
 
-
       // no need to process further if the word has higher frequency than required
       if (wordsSeen[word] > (wordFrequency[word] || 0)) {
         break;
@@ -56,3 +55,14 @@ function find_word_concatenation(str, words) {
 // Test
 console.log(find_word_concatenation('catfoxcat', ['cat', 'fox']));
 console.log(find_word_concatenation('catcatfoxfox', ['cat', 'fox']));
+
+/*
+ Time: O(n * m * len) 
+   ‘n’ is the number of characters in the given string, 
+   ‘m’ is the total number of words, 
+   ‘len’ is the length of a word.
+ Space: O(m) 
+   at most, we will be storing all the words in the two HashMaps. 
+   the worst case, we also need O(n) space for the resulting list. 
+   So, the overall space complexity of the algorithm will be O(n + m).
+/*
