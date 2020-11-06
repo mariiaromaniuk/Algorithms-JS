@@ -14,6 +14,7 @@ class HashTable {
     return total;
   }
   
+  // Separate chaining
   set(key,value){
     let index = this.hash(key);
     if (!this.keyMap[index]){
@@ -79,3 +80,10 @@ ht.set("violet","#DDA0DD")
 ht.keys().forEach(function(key){
   console.log(ht.get(key));
 })
+
+
+// Algorithm	 Average	 Worst 
+// Space		    O(n)   	  O(n)
+// Search		    O(1)	    O(n)
+// Insert		    O(1)    	O(n)
+// Delete		    O(1)	    O(n)
