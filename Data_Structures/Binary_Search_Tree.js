@@ -85,38 +85,17 @@ class BinarySearchTree {
   search(val){
       if (!this.root) 
           return false;
-      let p = this.root,
-          found = false;
-      while (p && !found){
+      let p = this.root;
+      while (p){
           if (val < p.val)
               p = p.left;
           else if (val > p.val)
               p = p.right;
           else 
-              found = true;
+              return true;
       }
-      if (!found) 
-        return undefined;
-      return p;
+      return false;
   }
-    
-    
-    contains(val){
-        if (this.root === null) 
-          return false;
-        var current = this.root,
-            found = false;
-        while (current && !found){
-            if (val < current.val){
-                current = current.left;
-            } else if (val > current.val){
-                current = current.right;
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }
 }
 
 function validate(root){ 
@@ -131,7 +110,6 @@ function validate(root){
   return true;  
 }
 
-module.exports = BinarySearchTree;
 
 // Test
 const bst = new BinarySearchTree();
@@ -147,3 +125,5 @@ console.log(bst);
 console.log(bst.remove(10));
 console.log(bst);
 
+
+// Time: Insertion: O(log n), Search: O(log n)
