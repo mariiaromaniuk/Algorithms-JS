@@ -11,7 +11,7 @@ class BinarySearchTree {
     this.root = null;
   }
     
-    // Insert value to the tree
+  // Insert value to the tree
   insert(val) {
     const node = new Node(val);
     if (!this.root){
@@ -37,29 +37,73 @@ class BinarySearchTree {
       }
     }
   }
+  
+  // Remove value from the tree
+  remove(val){ 
+    // root is re-initialized with a root of a modified tree. 
+    this.root = this.removeNode(this.root, val); 
+  } 
+  // Method to remove node with a given value
+  // it recur over the tree to find the val and removes it 
+  removeNode(node, key){ 
+    if (node === null) 
+        return null; 
+    else if (key < node.val){ 
+      node.left = this.removeNode(node.left, key); 
+      return node; 
+    } 
+    else if (key > node.val){ 
+      node.right = this.removeNode(node.right, key); 
+      return node; 
+    } 
+    else { 
+      // deleting node with no children 
+      if (node.left === null && node.right === null){ 
+          node = null; 
+          return node; 
+      } 
+      // deleting node with one child 
+      if (node.left === null){ 
+          node = node.right; 
+          return node; 
+      } 
+      else if (node.right === null){ 
+          node = node.left; 
+          return node; 
+      } 
+      // Deleting node with two children 
+      // minumum node of the rigt subtree is stored in aux 
+      var aux = this.findMinNode(node.right); 
+      node.val = aux.val; 
+  
+      node.right = this.removeNode(node.right, aux.val); 
+      return node; 
+    } 
+  }
     
-    // Find value in the tree
-    find(val){
-        if (this.root === null) 
-            return false;
-        var current = this.root,
-            found = false;
-        while (current && !found){
-            if (val < current.val){
-                current = current.left;
-            } else if (val > current.val){
-                current = current.right;
-            } else {
-                found = true;
-            }
-        }
-        if (!found) return undefined;
-        return current;
-    }
+  // Find value in the tree
+  search(val){
+      if (!this.root) 
+          return false;
+      let p = this.root,
+          found = false;
+      while (p && !found){
+          if (val < p.val)
+              p = p.left;
+          else if (val > p.val)
+              p = p.right;
+          else 
+              found = true;
+      }
+      if (!found) 
+        return undefined;
+      return p;
+  }
     
     
     contains(val){
-        if (this.root === null) return false;
+        if (this.root === null) 
+          return false;
         var current = this.root,
             found = false;
         while (current && !found){
@@ -75,12 +119,31 @@ class BinarySearchTree {
     }
 }
 
+function validate(root){ 
+  if (!root)  
+    return true;  
+  if (root.left && root.left.val > root.val)  
+    return false;  
+  if (root.right && root.right.val < root.val)  
+    return false;  
+  if (!validate(root.left) || !validate(root.right))  
+    return false;   
+  return true;  
+}
+
+module.exports = BinarySearchTree;
+
 // Test
-var tree = new BinarySearchTree();
-tree.insert(10)
-tree.insert(5)
-tree.insert(13)
-tree.insert(11)
-tree.insert(2)
-tree.insert(16)
-tree.insert(7)
+const bst = new BinarySearchTree();
+console.log(bst);
+bst.insert(10);
+bst.insert(5);
+bst.insert(15);
+bst.insert(12);
+bst.insert(7);
+bst.insert(6);
+console.log(validate(bst));
+console.log(bst);
+console.log(bst.remove(10));
+console.log(bst);
+
