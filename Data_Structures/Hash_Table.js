@@ -82,8 +82,8 @@ ht.keys().forEach(function(key){
 })
 
 
-// Algorithm	 Average	 Worst 
-// Space		    O(n)   	  O(n)
-// Search		    O(1)	    O(n)
-// Insert		    O(1)    	O(n)
-// Delete		    O(1)	    O(n)
+// Algorithm	 Average	  Worst 
+// Space		    O(n)      O(n)
+// Search		    O(1)      O(n)
+// Insert		    O(1)      O(n)
+// Delete		    O(1)      O(n)
