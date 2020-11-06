@@ -82,7 +82,7 @@ ht.keys().forEach(function(key){
 })
 
 
-// Algorithm	 Average	  Worst 
+// Algorithm   Average   Worst 
 // Space        O(n)      O(n)
 // Search       O(1)      O(n)
 // Insert       O(1)      O(n)
