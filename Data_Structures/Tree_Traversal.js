@@ -39,7 +39,9 @@ class BinarySearchTree {
   }
 
   // BREADTH FIRST SEARCH
+  // Time: O(n), Space: O(w) where w is the maximum width of the tree
   // Use less space in the call stack (gueue) for thin and long trees
+  
   // 1. create a queue & a variable (aaray) to store the values of nodes visited
   // 2. place the root node in the queue
   // 3. loop as long as there is anything in the queue
@@ -69,7 +71,9 @@ class BinarySearchTree {
    }
 
   // DEPTH FIRST SEARCH
+  // Time: O(n), Space: O(h) where h is the maximum width of the tree
   // Use less space in the call stack (gueue) for wide trees
+  
   // 1. create a variable to sotre the values of the nodes visited
   // 2. store the root of the BST in a variable called current
   // 3. write a helper function that accepts a node
