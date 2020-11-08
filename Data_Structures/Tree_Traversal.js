@@ -12,7 +12,7 @@ class BinarySearchTree {
   }
   
   // Insert value to the tree
-  insert(val) {
+  insert(val){
     const node = new Node(val);
     if (!this.root){
       this.root = node;
@@ -87,7 +87,7 @@ class BinarySearchTree {
   // Used to duplicate or flatten the tree
   DFS_PreOrder(){
     let visited = [];
-    function traverse(node) {
+    function traverse(node){
       visited.push(node.value);
       if (node.left) 
          traverse(node.left);
@@ -100,9 +100,9 @@ class BinarySearchTree {
   
   // DFS In-order (recursive, returns array of all values)
   // Sorts values in ascending order (for BST)
-  DFS_InOrder() {
+  DFS_InOrder(){
     let visited = [];
-    function traverse(node) {
+    function traverse(node){
       if (node.left) 
          traverse(node.left);
       visited.push(node.value);
@@ -116,7 +116,7 @@ class BinarySearchTree {
   // DFS Post-order (recursive, returns array of all values)
   DFS_PostOrder(){
     let visited = [];
-    function traverse(node) {
+    function traverse(node){
       if (node.left) 
          traverse(node.left);
       if (node.right) 
@@ -130,8 +130,8 @@ class BinarySearchTree {
 
 // DFS Pre-order (recursive, void, just prints)
 // Used to duplicate or flatten the tree
-function preOrder(node) {
-  if (node !== null) {
+function preOrder(node){
+  if (node !== null){
     console.log(node.val);
     preOrder(node.left);
     preOrder(node.right);
@@ -140,8 +140,8 @@ function preOrder(node) {
 
 // DFS In-order (recursive, void, just prints)
 // Sorts values in ascending order (for BST)
-function inOrder(node) {
-  if (node !== null) {
+function inOrder(node){
+  if (node !== null){
     inOrder(node.left);
     console.log(node.val);
     inOrder(node.right);
@@ -149,8 +149,8 @@ function inOrder(node) {
 }
 
 // DFS Post-order (recursive, void, just prints)
-function postOrder(node) {
-  if (node !== null) {
+function postOrder(node){
+  if (node !== null){
     postOrder(node.left);
     postOrder(node.right);
     console.log(node.val);
