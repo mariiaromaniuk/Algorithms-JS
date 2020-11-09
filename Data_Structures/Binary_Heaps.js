@@ -101,3 +101,6 @@ heap.insert(18);
 heap.insert(27);
 heap.insert(12);
 heap.insert(55);
+
+// Time: Insertion: O(log n), Deletion: O(log n), Search: O(n),
+// The number of operations required depends only on the number of levels the new element must rise to satisfy the heap property. 
