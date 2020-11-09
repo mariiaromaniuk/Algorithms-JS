@@ -1,3 +1,13 @@
+// Priority Queue is an extension of queue with following properties.
+// 1. Every item has a priority associated with it.
+// 2. An element with high priority is dequeued before an element with low priority.
+// 3. If two elements have the same priority, they are served according to their order in the queue.
+
+// Priority Queue Implementation using Min Binary Heap (lower number means higher priority):
+// Each Node has a val and a priority. Use the priority to build the heap.
+// Enqueue method accepts a value and priority, makes a new node, and puts it in the right spot based of its priority.
+// Dequeue method removes root element, returns it, and rearranges heap using priority.
+
 class Node {
   constructor(value, priority){
     this.value = value;
@@ -12,8 +22,8 @@ class PriorityQueue {
   }
 
   enqueue(val, priority){
-    let newNode = newNode(val, priority);
-    this.values.push(newNode);
+    let node = node(val, priority);
+    this.values.push(node);
     this.bubbleUp();
   }
 
@@ -24,7 +34,7 @@ class PriorityQueue {
     // until we reach the front
     while (index > 0){
       // count backwards to find the parent index
-      let parentIndex = Math.floor((index - 1) / 2);
+      let parentIndex = Math.floor((index - 1)/2);
       let parent = this.values[parentIndex];
       // if it's a higher number, parent has more priority, so break
       if (element.priority >= parent.priority) 
