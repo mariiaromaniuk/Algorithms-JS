@@ -1,11 +1,11 @@
 // Graph Traversal Uses:
-// Peer to peer networking
-// Web crawlers
-// Finding "closest" matches/recommendations
-// Shortest path problems.
-// GPS Navigation
-// Solving mazes
-// AI (shortest path to win the game)
+// • Peer to peer networking
+// • Web crawlers
+// • Finding "closest" matches/recommendations
+// • Shortest path problems.
+// • GPS Navigation
+// • Solving mazes
+// • AI (shortest path to win the game)
 
 class Graph {
   constructor(){
@@ -39,18 +39,17 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
-  // function that accepts a starting node
-  // create a list to store end result, return at end
-  // object to store visited vertices
-  // helper function return early if the vertex is empty
-  // the heper function accepts a vertex
-  // return early if the vertex is empty
-  // place the vertex into the visited object and push that vertex into the result array
-  // loop over all of the values in the adjacency list for that vertex.
-  // if any of those values have not been visited, recursively invoke the helper function with that vertex
-  // invoke the helper function with the starting vertex
+  // Function that accepts a starting node
+  // Create a list to store end result, to be returned at the very end
+  // Create an object to store visited vertices
+  // Create a heper function that accepts a vertex:
+  // • it returns early if the vertex is empty
+  // • it places the vertex it accepts into the visited object and push that vertex into the result array
+  // • it loops over all of the values in the adjacency list for that vertex
+  // If any of those values have not been visited, recursively invoke the helper function with that vertex
+  // Invoke this helper function with the starting vertex
 
-  dfsRecursive(start){
+  DFSrecursive(start){
     let listResult = [];
     let visited = {};
     let adjacencyList = this.adjacencyList;
@@ -68,15 +67,16 @@ class Graph {
     return listResult;
   }
 
-  // accept a starting node
-  // create a stack to keep track of vertices (use a list/array)
-  // create a list to store the end result, to be returned at the very end
-  // create an object to store visited vertices
-  // add the starting vertex to the stack & mark it visited
-  // while the stack has something in it -- pop the next vertex from the stack -- if that one hasn't been visited yet
-  // mark it as visited, add it to the result list
-  // push all of its neighbors into the stack
-  dfsIterative(start){
+  // Accept a starting node
+  // Create a stack to keep track of vertices (use a list/array)
+  // Create a list to store the end result, to be returned at the very end
+  // Create an object to store visited vertices
+  // Add the starting vertex to the stack & mark it visited
+  // While the stack has something in it -- pop the next vertex from the stack -- if that one hasn't been visited yet
+  // Mark it as visited, add it to the result list
+  // Push all of its neighbors into the stack
+
+  DFSiterative(start){
     let stackOfVertices = [start];
     let listResult = [];
     let visited = {};
@@ -99,16 +99,17 @@ class Graph {
     }
     return listResult;
   }
-  // accept a starting vertex
-  // create a queue (array) and place starting vertex in it
-  // create an array to store visited nodes
-  // create an objec tto store visited nodes
-  // mark starting vertex as visted
-  // loop through while queue
-  // remove first vertex from queue and push to array that stores visted nodes
-  // loop over each vertex in the list for the vertex you are visiting
-  // if it's not inside the object, mark it as visited and enqueue that vertex
-  // once you have finished looping, return the array of visited nodes
+
+  // Accept a starting vertex
+  // Create a queue (array) and place starting vertex in it
+  // Create an array to store visited nodes
+  // Create an objec tto store visited nodes
+  // Mark starting vertex as visted
+  // Loop through while queue
+  // Remove first vertex from queue and push to array that stores visted nodes
+  // Loop over each vertex in the list for the vertex you are visiting
+  // If it's not inside the object, mark it as visited and enqueue that vertex
+  // Once you have finished looping, return the array of visited nodes
 
   breadthFirst(start){
     let queue = [start];
