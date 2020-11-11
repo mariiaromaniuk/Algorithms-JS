@@ -41,10 +41,14 @@ class Graph {
   }
 
   removeVertex(vertex){
+    // Remove all the adjacent vertices in this vertex's adjacency list
     while (this.adjacencyList[vertex].length){
+      // Remove each vertex
       const adjacentVertex = this.adjacencyList.pop();
+      // Remove the connection 
       this.removeEdge(vertex, adjacentVertex);
     }
+    // Delete vertex itself
     delete this.adjacencyList[vertex];
   }
 }
