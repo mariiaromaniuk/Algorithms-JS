@@ -1,4 +1,8 @@
 // Adjacency Matrix representation of a graph
+// • Takes up more space (in sparse graphs) 
+// • Slower to iterate over all edges 
+// • Faster to lookup specific edge
+
 const adjacencyMatrix = [
   [false, true, true, false],
   [false, false, true, true],
@@ -8,6 +12,10 @@ const adjacencyMatrix = [
 
 
 // Adjacency List representation of a graph
+// • Can take up less space (in sparse graphs)
+// • Faster to iterate over all edges
+// • Can be slower to lookup specific edge
+
 class Graph {
   constructor(){
     this.adjacencyList = {};
