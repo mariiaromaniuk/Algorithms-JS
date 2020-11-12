@@ -108,6 +108,7 @@ class Graph {
     return result;
   }
 
+  // Here we're using queue
   // Accept a starting vertex
   // Create a queue (array) and place starting vertex in it
   // Create an array to store visited nodes
@@ -121,13 +122,14 @@ class Graph {
 
   BFS(start){
     let queue = [start];
-    let returnArray = [];
+    let result = [];
     let visited = {};
     visited[start] = true;
-    let currentVertex;
+
     while (queue.length){
-      currentVertex = queue.shift();
-      returnArray.push(currentVertex);
+      // use shift() to remove from beginning
+      let currentVertex = queue.shift();
+      result.push(currentVertex);
       this.adjacencyList[currentVertex].forEach(neighbor => {
         if (!visited[neighbor]){
           visited[neighbor] = true;
@@ -135,7 +137,7 @@ class Graph {
         }
       })
     }
-    return returnArray;
+    return result;
   }
 
 }
