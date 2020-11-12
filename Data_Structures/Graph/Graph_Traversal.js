@@ -39,9 +39,10 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
+  // It goes to the 'first neigbor track'
   // Function that accepts a starting node
   // Create a list to store end result, to be returned at the very end
-  // Create an object to store visited vertices
+  // Create an object to store visited vertices (or we can use an array)
   // Create a heper function that accepts a vertex:
   // • it returns early if the vertex is empty
   // • it places the vertex it accepts into the visited object and push that vertex into the result array
@@ -50,54 +51,61 @@ class Graph {
   // Invoke this helper function with the starting vertex
 
   DFSrecursive(start){
-    let listResult = [];
+    let result = [];
     let visited = {};
+    // we need to reassign it here because inside of depth 
+    // function the context of 'this' will be changed
     let adjacencyList = this.adjacencyList;
     function depth(vertex){
       if (!vertex) 
         return null;
       visited[vertex] = true;
-      listResult.push(vertex);
+      result.push(vertex);
       for (let i = 0; i < adjacencyList[vertex].length; i++){
         if (!visited[adjacencyList[vertex][i]]) 
           return depth(adjacencyList[vertex][i]);
       }
     }
     depth(start);
-    return listResult;
+    return result;
   }
 
+  // For Iterative DFS instead of call stack we simply use stack data structure
+  // It goes to the 'last neigbor track'
   // Accept a starting node
   // Create a stack to keep track of vertices (use a list/array)
   // Create a list to store the end result, to be returned at the very end
-  // Create an object to store visited vertices
-  // Add the starting vertex to the stack & mark it visited
-  // While the stack has something in it -- pop the next vertex from the stack -- if that one hasn't been visited yet
-  // Mark it as visited, add it to the result list
-  // Push all of its neighbors into the stack
+  // Create an object to store visited vertices (or we can use an array)
+  // Add the starting vertex to the stack and mark it visited
+  // While the stack has something in it:
+  // Pop the next vertex from the stack and if it hasn't been visited yet:
+  // • mark it as visited, add it to the result list
+  // • Push all of its neighbors into the stack
 
   DFSiterative(start){
-    let stackOfVertices = [start];
-    let listResult = [];
+    // we need to put 'start' in it right away
+    // so we can use (stack.length) in the while loop
+    let stack = [start];
+    let result = [];
     let visited = {};
-    let adjacencyList = this.adjacencyList;
-    let nextVertex;
+    // mark start as visited because we put it in the stack already
     visited[start] = true;
-    while (stackOfVertices.length !== 0){
-      nextVertex = stackOfVertices.pop();
-      listResult.push(nextVertex);
-      if (!visited[nextVertex]){
-        visited[nextVertex] = true;
-        stackOfVertices.push(...adjacencyList[nextVertex]);
-        //or adjacencyList.forEach(neighbor => {
-        //     if (!visited[neighbor]){
-        //         visited[neighbor] = true
-        //         stackOfVertices.push(neighbor)
-        //     }
-        // })
+
+    while (stack.length){
+      let currVertex = stack.pop();
+      result.push(currVertex);
+      if (!visited[currVertex]){
+        visited[currVertex] = true;
+        stack.push(...this.adjacencyList[currentVertex]);
+        // OR this.adjacencyList[currentVertex].forEach(neighbor => {
+        //   if(!visited[neighbor]){
+        //     visited[neighbor] = true;
+        //     stack.push(neighbor);
+        //   } 
+        // });
       }
     }
-    return listResult;
+    return result;
   }
 
   // Accept a starting vertex
@@ -111,7 +119,7 @@ class Graph {
   // If it's not inside the object, mark it as visited and enqueue that vertex
   // Once you have finished looping, return the array of visited nodes
 
-  breadthFirst(start){
+  BFS(start){
     let queue = [start];
     let returnArray = [];
     let visited = {};
