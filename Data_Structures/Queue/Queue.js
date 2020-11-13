@@ -82,3 +82,9 @@ class Queue {
     return toDelete.val;
   }
 }
+
+// Algorithm   Average   
+// Access       O(n)     
+// Search       O(n)      
+// Insert       O(1)     
+// Delete       O(1)      
