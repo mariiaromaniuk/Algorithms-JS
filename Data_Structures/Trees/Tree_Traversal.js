@@ -157,7 +157,6 @@ function postOrder(node){
   }
 }
 
-
 // Test
 var tree = new BinarySearchTree();
 tree.insert(10);
