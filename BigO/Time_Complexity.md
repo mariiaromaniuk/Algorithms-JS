@@ -31,8 +31,8 @@ __Big O Shorthands__:
 
 __Objects:__  
 - __Common Algoriths:__ __*Insert:*__ O(1), __*Remove:*__ O(1), __*Access:*__ O(1), __*Search:*__ O(n).  
-- __Built in Methods:__ Object.keys: O(n), Object.values:   O(n), Object.entries:  O(n), hasOwnProperty:  O(1).  
+- __Built in Methods:__ Object.keys: O(n), Object.values: O(n), Object.entries: O(n), hasOwnProperty: O(1).  
 
 __Arrays:__  
 - __Common Algoriths:__ __*Insert:*__ push():O(1), unshift():O(n), __*Remove:*__ pop():O(1), shift():O(n), __*Access:*__ O(1), __*Search:*__ O(n).  
-- __Built in Methods:__ Object.keys: O(n), Object.values:   O(n), Object.entries:  O(n), hasOwnProperty:  O(1).
+- __Built in Methods:__ concat(): O(n), slice(): O(n), splice(): O(n), sort(): O(n log n), forEach/map/filter/reduce/etc.: O(n).
