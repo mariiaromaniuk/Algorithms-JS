@@ -7,20 +7,106 @@
 
 // We use Priority Queue to determine which node to visit next 
 // the goal is to get the smallest value from the top of the queue
+
+// Naive Implementation of PriorityQueue - simple and slower:
+// class PriorityQueue {
+//   constructor(){
+//     this.values = [];
+//   }
+
+//   enqueue(val, priority){
+//     this.values.push({ val, priority });
+//     // sort by priority so when we dequeue 
+//     // it will be the smallest val (shortest path)
+//     this.values.sort((a, b) => a.priority - b.priority);
+//   }
+
+//   dequeue(){
+//     return this.values.shift();
+//   }
+// }
+
+// Priority Queue Implementation using Min Binary Heap (lower number means higher priority) - much faster:
+class Node {
+  constructor(val, priority){
+    this.val = val;
+    // the lower the number the higher it needs to be in the array
+    this.priority = priority; 
+  }
+}
+
 class PriorityQueue {
   constructor(){
     this.values = [];
   }
 
   enqueue(val, priority){
-    this.values.push({ val, priority });
-    // sort by priority so when we dequeue 
-    // it will be the smallest val (shortest path)
-    this.values.sort((a, b) => a.priority - b.priority);
+    let node = new Node(val, priority);
+    this.values.push(node);
+    this.bubbleUp();
+  }
+
+  bubbleUp(){
+    //the last element in the array
+    let idx = this.values.length - 1;
+    const element = this.values[idx];
+    // until we reach the front
+    while (idx > 0){
+      // count backwards to find the parent index
+      let parentIdx = Math.floor((idx - 1)/2);
+      let parent = this.values[parentIdx];
+      // if it's a higher number, parent has more priority, so break
+      if (element.priority >= parent.priority) 
+         break;
+      this.values[parentIdx] = element;
+      this.values[idx] = parent;
+      idx = parentIdx;
+    }
   }
 
   dequeue(){
-    return this.values.shift();
+    // highest priority item at the top
+    const min = this.values[0]; 
+    const end = this.values.pop();
+    // the last item in array
+    if (this.values.length > 0){
+      // swap first val with last val?
+      this.values[0] = end;
+      this.sinkDown();
+    }
+    return min;
+  }
+  
+  sinkDown(){
+    let idx = 0;
+    const length = this.values.length;
+    const element = this.values[0];
+    while (true){
+      let leftChildIdx = 2 * idx + 1;
+      let rightChildIdx = 2 * idx + 2;
+      let leftChild, rightChild;
+      let swap = null;
+
+      if (leftChildIdx < length){
+        // if the index is inside the array
+        leftChild = this.values[leftChildIdx];
+        if (leftChild.priority < element.priority){
+          swap = leftChildIdx;
+        }
+      }
+      if (rightChildIdx < length){
+        rightChild = this.values[rightChildIdx];
+        if ((swap === null && rightChild.priority < element.priority) ||
+            (swap !== null && rightChild.priority < leftChild.priority)){
+              swap = rightChildIdx;
+        }
+      }
+      if (swap === null) 
+         break;
+      this.values[idx] = this.values[swap];
+      this.values[swap] = element;
+      idx = swap;
+    }
   }
 }
 
@@ -67,11 +153,11 @@ class WeightedGraph {
     // to keep track of how did we get to each vertex
     // previous shortest path {'A':null,'B':'A','C':'A', ...}
     const previous = {};
+    // shortest path to return at the end
+    let path = []; 
     // the next vertex we need to go with smallest path value (priority)
     // we will take next vertex from priority queue
     let smallest;
-    // shortest path to return at the end
-    let path = []; 
 
     // Build up initial state (default values):
     // set start vertex distance and priority to 0
@@ -125,5 +211,24 @@ class WeightedGraph {
     }
     return path.concat(smallest).reverse();
   }
-
 }
+
+// Test
+var graph = new WeightedGraph()
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+  
+graph.addEdge("A","B", 4);
+graph.addEdge("A","C", 2);
+graph.addEdge("B","E", 3);
+graph.addEdge("C","D", 2);
+graph.addEdge("C","F", 4);
+graph.addEdge("D","E", 3);
+graph.addEdge("D","F", 1);
+graph.addEdge("E","F", 1);
+  
+graph.Dijkstra("A", "E");  // ["A", "C", "D", "F", "E"]
