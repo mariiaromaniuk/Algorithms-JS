@@ -1,4 +1,4 @@
-// Add up - slower
+// Add up slower: O(n)
 function addUpTo(n) {
   let total = 0;
   for (let i = 1; i <= n; i++) {
@@ -14,7 +14,9 @@ var t2 = performance.now();
 // Difference between them will be the running time of our function 
 console.log(`Time Elapsed: ${(t2 - t1) / 1000} seconds.`);
 
-// Add up - faster
+
+
+// Add up faster: O(1)
 function addUpTo(n) {
   return n * (n + 1) / 2;
 }
@@ -23,6 +25,7 @@ var time1 = performance.now();
 addUpTo(1000000000);
 var time2 = performance.now();
 console.log(`Time Elapsed: ${(time2 - time1) / 1000} seconds.`);
+
 
 
 // Different machines will record different times
