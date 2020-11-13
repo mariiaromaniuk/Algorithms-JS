@@ -23,9 +23,11 @@ function same(arr1, arr2){
   let arr1Map = {};
   let arr2Map = {};
 
+  // We count frequency of each number in each array first:
+  // {2:2, 3:1, 4:1}
   for (let values of arr1)
     arr1Map[values] = (arr1Map[values] || 0) + 1;
-
+  // {4:2, 9:1, 16:1}
   for (let values of arr2)
     arr2Map[values] = (arr2Map[values] || 0) + 1;
 
@@ -38,8 +40,9 @@ function same(arr1, arr2){
 
 // Test
 let arr1 = [2, 2, 3, 4];
-let arr2 = [4, 9, 4, 16];
+let arr2 = [4, 9, 4, 16]; 
 let arr3 = [1, 4, 5, 16];
 let arr4 = [4, 4, 9, 16, 17];
 
-console.log(same(arr1, arr2));
+console.log(same(arr1, arr2));  // true
+console.log(same(arr3, arr4));  // false
