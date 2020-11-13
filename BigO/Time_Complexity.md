@@ -1,13 +1,4 @@
 Big O allows us to talk formally about how the runtime of an algorithm grows as the inputs grows.  
-__Big O Shorthands__:
-1. Arithmetic operations are constant.  
-- O(n + 10) == O(n)
-- O(1000n + 50) == O(n)
-- O(n^2 + 5n + 8) == O(n^2)
-2. Variable assignment is constant.
-3. Accessing elements in an array (by index) or object (by key) is constant.
-4. In a loop, the the complexity is the length of the loop times the complexity of whatever happens inside of the loop.  
-
 - __Constant algorithm – O(n):__ Runtime is always constant.
 - __Logarithmic algorithm – O(logn):__ Runtime grows logarithmically in proportion to n.
 - __Linear algorithm – O(n):__ Runtime grows directly in proportion to n.
@@ -29,3 +20,11 @@ function logAtMost10(n){
       console.log(i);
 }
 ```
+__Big O Shorthands__:
+1. Arithmetic operations are constant.  
+- O(n + 10) == O(n)
+- O(1000n + 50) == O(n)
+- O(n^2 + 5n + 8) == O(n^2)
+2. Variable assignment is constant.
+3. Accessing elements in an array (by index) or object (by key) is constant.
+4. In a loop, the the complexity is the length of the loop times the complexity of whatever happens inside of the loop.  
