@@ -1,5 +1,5 @@
 Big O allows us to talk formally about how the runtime of an algorithm grows as the inputs grows.  
-Big 0 Shorthands:
+__Big O Shorthands__:
 1. Arithmetic operations are constant.  
 - O(n + 10) == O(n)
 - O(1000n + 50) == O(n)
