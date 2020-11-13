@@ -10,7 +10,8 @@ function validAnagram(str1, str2){
   for (let i = 0; i < str1.length; i++) 
     charMap[str1[i]] ? (charMap[str1[i]] += 1) : (charMap[str1[i]] = 1);
   
-  for (let i = 0; i < str2.length; i++) {
+  for (let i = 0; i < str2.length; i++){
+    // can't find char or char value is 0 (zero returns falsy)
     if (!charMap[str2[i]]) 
       return false;
     else 
