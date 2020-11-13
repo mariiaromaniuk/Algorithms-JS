@@ -1,6 +1,6 @@
 Big O allows us to talk formally about how the runtime of an algorithm grows as the inputs grows.  
 - __Constant algorithm – O(n):__ Runtime is always constant.
-- __Logarithmic algorithm – O(logn):__ Runtime grows logarithmically in proportion to n.
+- __Logarithmic algorithm – O(logn):__ Runtime grows logarithmically in proportion to n. The logarithm of a number roughly measures the number of times you can divide that number by 2 before you get a value that's less than or equal to 1.
 - __Linear algorithm – O(n):__ Runtime grows directly in proportion to n.
 - __Superlinear algorithm – O(nlogn):__ Runtime grows in proportion to n.
 - __Polynomial algorithm – O(n^c):__ Runtime grows quicker than previous all based on n (quadratic).
