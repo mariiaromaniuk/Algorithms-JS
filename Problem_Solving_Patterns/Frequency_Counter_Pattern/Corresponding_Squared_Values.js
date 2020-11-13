@@ -24,12 +24,10 @@ function same(arr1, arr2){
   let arr2Map = {};
 
   // We count frequency of each number in each array first:
-  // {2:2, 3:1, 4:1}
   for (let values of arr1)
-    arr1Map[values] = (arr1Map[values] || 0) + 1;
-  // {4:2, 9:1, 16:1}
+    arr1Map[values] = (arr1Map[values] || 0) + 1;  // {2:2, 3:1, 4:1}
   for (let values of arr2)
-    arr2Map[values] = (arr2Map[values] || 0) + 1;
+    arr2Map[values] = (arr2Map[values] || 0) + 1;  // {4:2, 9:1, 16:1}
 
   for (let key in arr1Map){
     if (!(key**2 in arr2Map))
