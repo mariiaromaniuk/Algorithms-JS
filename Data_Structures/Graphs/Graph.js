@@ -52,3 +52,17 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 }
+
+// Test
+let g = new Graph();
+g.addVertex("Dallas");
+g.addVertex("Tokyo");
+g.addVertex("Aspen");
+g.addVertex("Los Angeles");
+g.addVertex("Hong Kong")
+g.addEdge("Dallas", "Tokyo");
+g.addEdge("Dallas", "Aspen");
+g.addEdge("Hong Kong", "Tokyo");
+g.addEdge("Hong Kong", "Dallas");
+g.addEdge("Los Angeles", "Hong Kong");
+g.addEdge("Los Angeles", "Aspen");
