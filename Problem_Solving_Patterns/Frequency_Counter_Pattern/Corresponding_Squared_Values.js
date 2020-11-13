@@ -1,7 +1,7 @@
 // Write a function that accepts 2 arrays. The function should return true if every value in first array 
 // has its corresponding squared value in the second array. The frequency of value must remain the same.
 
-// OPTION 1
+// OPTION 1 --> O(n^2)
 function same(arr1, arr2){
     if (arr1.length !== arr2.length)
         return false;
