@@ -1,19 +1,17 @@
 // Write a function which accepts a sorted array and counts the unique values in the array. 
 // Tere can be negative numbers in the array, but it will alway be sorted.
 
-function countUnqiueValues(arr){
+function countUniqueValues(arr){
   if (!arr.length) 
     return 0;
-
-  let i = 0;
-  for (let j = 1; j < arr.length; j++){
-    if (arr[i] !== arr[j]) {
-      i++;
-      arr[i] = arr[j];
-    }
+  
+  let count = 0;
+  for (let i = 0; i < arr.length; i++){
+      count++;
+      while (arr[i] === arr[i+1]) i++;
   }
-  return i + 1;
-};
+  return count;
+}
 
 // Test
 console.log(countUnqiueValues([1, 1, 1, 1, 1, 1, 2])); // 2
