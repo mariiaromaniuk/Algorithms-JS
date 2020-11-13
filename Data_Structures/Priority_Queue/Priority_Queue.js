@@ -9,8 +9,8 @@
 // Dequeue method removes root element, returns it, and rearranges heap using priority.
 
 class Node {
-  constructor(value, priority){
-    this.value = value;
+  constructor(val, priority){
+    this.val = val;
     // the lower the number the higher it needs to be in the array
     this.priority = priority; 
   }
@@ -22,26 +22,26 @@ class PriorityQueue {
   }
 
   enqueue(val, priority){
-    let node = node(val, priority);
+    let node = new Node(val, priority);
     this.values.push(node);
     this.bubbleUp();
   }
 
   bubbleUp(){
     //the last element in the array
-    let index = this.values.length - 1;
-    const element = this.values[index];
+    let idx = this.values.length - 1;
+    const element = this.values[idx];
     // until we reach the front
-    while (index > 0){
+    while (idx > 0){
       // count backwards to find the parent index
-      let parentIndex = Math.floor((index - 1)/2);
-      let parent = this.values[parentIndex];
+      let parentIdx = Math.floor((idx - 1)/2);
+      let parent = this.values[parentIdx];
       // if it's a higher number, parent has more priority, so break
       if (element.priority >= parent.priority) 
          break;
-      this.values[parentIndex] = element;
-      this.values[index] = parent;
-      index = parentIndex;
+      this.values[parentIdx] = element;
+      this.values[idx] = parent;
+      idx = parentIdx;
     }
   }
 
@@ -65,7 +65,7 @@ class PriorityQueue {
     while (true){
       let leftChildIdx = 2 * idx + 1;
       let rightChildIdx = 2 * idx + 2;
-      let leftChild, rightChildIdx;
+      let leftChild, rightChild;
       let swap = null;
 
       if (leftChildIdx < length){
