@@ -6,7 +6,6 @@ function averagePair(arr, target){
   if (arr.length < target)
     return false;
   
-  let sum = 0;
   let start = 0;
   let end = arr.length - 1;
 
