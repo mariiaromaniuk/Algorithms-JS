@@ -5,24 +5,7 @@
 // Note: that a subarray must consist of consecutive elements from the original array.
 
 
-// OPTION 1 --> O(n^2), O(1)
-function max_sub_array_of_size_k(k, arr){
-  if (arr.length < k) 
-    return null;
-
-  let max = -Infinity;
-  for (let i = 0; i < arr.length - k + 1; i++){
-    let temp = 0;
-    for (let j = 0; j < k; j++) 
-      temp += arr[i + j];
-    if (temp > max) 
-      max = temp;
-  }
-  return max;
-};
-
-
-// OPTION 2 --> O(n), O(1)
+// OPTION 1 --> O(n), O(1)
 function max_sub_array_of_size_k(k, arr){
   if (k > arr.length)
     return null;
@@ -41,7 +24,7 @@ function max_sub_array_of_size_k(k, arr){
 }
 
 
-// OPTION 3 --> O(n), O(1)
+// OPTION 2 --> O(n), O(1)
 function max_sub_array_of_size_k(k, arr) {
   let maxSum = 0,
     windowSum = 0,
