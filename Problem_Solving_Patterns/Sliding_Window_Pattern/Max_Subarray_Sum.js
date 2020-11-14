@@ -1,3 +1,5 @@
+// Sliding Window Pattern useful when we're keeping track of a subset of data in a larger data set
+
 // Given an array of positive numbers and a positive number ‘k’, 
 // find the maximum sum of any contiguous subarray of size ‘k’.
 // Note: that a subarray must consist of consecutive elements from the original array.
