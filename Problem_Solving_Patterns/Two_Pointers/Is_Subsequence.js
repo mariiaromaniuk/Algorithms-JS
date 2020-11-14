@@ -3,6 +3,7 @@
 // function should check whether the character in the first string appears somewhere in the 
 // second sring, without their order changing.
 
+// OPTION 1
 function isSubsequence(str1, str2){
   if (!str1.length)
     return true;
@@ -18,6 +19,26 @@ function isSubsequence(str1, str2){
     j++;
   }
   return false;
+}
+
+// OPTION 2 --> O(n)
+function isSubsequence(str1, str2) {
+  let map = {};
+  for (let i of str2) 
+      map[i] = 1;
+  for (let j of str1){
+      if (!map[j]) return false;
+  }
+  return true;
+}
+
+// OPTION 3 -- > O(n^2)
+function isSubsequence(str1, str2) {
+  for (let i of str1){
+      if (!str2.indexOf(str1[i]))
+      return false;
+  }
+  return true;
 }
 
 // Test
