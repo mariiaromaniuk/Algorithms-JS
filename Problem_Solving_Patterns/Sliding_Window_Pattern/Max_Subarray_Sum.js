@@ -11,14 +11,13 @@ function max_sub_array_of_size_k(k, arr){
     return null;
 
   let maxSum = 0;
-  let tempSum = 0;
   for (let i = 0; i < k; i++)
     maxSum += arr[i];
-
-  tempSum = maxSum;
+  let windowSum = maxSum;
+  
   for (let i = k; i < arr.length; i++){
-    tempSum = tempSum - arr[i-k] + arr[i];
-    maxSum = Math.max(maxSum, tempSum);
+    windowSum = windowSum - arr[i-k] + arr[i];
+    maxSum = Math.max(maxSum, windowSum);
   }
   return maxSum;
 }
