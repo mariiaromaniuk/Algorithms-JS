@@ -1,7 +1,8 @@
 // Time: O(n log(n)), Space: O(log(n))
 
 // Call the pivot helper on the array
-// When the helper returns the updated pivot index, recursively call the pivot helper on the subarray to the left of that idx
+// When the helper returns the updated pivot index, recursively 
+// call the pivot helper on the subarray to the left of that idx
 function quickSort(arr, left = 0, right = arr.length-1){
   if (left < right){
     let pivotIdx = pivot(arr, left, right);
@@ -12,8 +13,10 @@ function quickSort(arr, left = 0, right = arr.length-1){
 }
 
 // Pivot helper/partition
-// Works by selecting one element ('pivot') and finding the index where the pivot should end up in the sorted array
-// It should then rearrange the elements in the array so that all values less than the pivot are moved to the left of the pivot, 
+// Works by selecting one element ('pivot') and finding the index where 
+// the pivot should end up in the sorted array.
+// It should then rearrange the elements in the array so that all values 
+// less than the pivot are moved to the left of the pivot, 
 // all values greater than the pivot are moved to the right of the pivot.
 // The order of elements on either side of picot doesnt matter.
 // When complete, the helpers should return the index of the pivot.
