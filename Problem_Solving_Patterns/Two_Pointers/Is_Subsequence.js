@@ -1,9 +1,9 @@
 // Write a function which takes two strings and checks whether the characters in the first 
 // string form a subsequence of the characters in the second string. In other words, the 
 // function should check whether the character in the first string appears somewhere in the 
-// second sring, without their order changing.
+// second string, without their order changing.
 
-// OPTION 1
+// OPTION 1 --> O(n)
 function isSubsequence(str1, str2){
   if (!str1.length)
     return true;
