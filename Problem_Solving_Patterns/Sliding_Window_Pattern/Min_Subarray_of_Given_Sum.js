@@ -38,23 +38,43 @@ console.log(smallest_subarray_with_given_sum([3, 1, 7, 11, 2, 9, 8, 21, 62, 33, 
 function smallest_subarray_with_given_sum(arr, s) {
   let windowSum = 0,
     minLength = Infinity,
-    windowStart = 0;
+    start = 0;
 
-  for (windowEnd = 0; windowEnd < arr.length; windowEnd++) {
-    windowSum += arr[windowEnd]; // add the next element
+  for (end = 0; end < arr.length; end++) {
+    windowSum += arr[end]; 
     // shrink the window as small as possible until the 'window_sum' is smaller than 's'
     while (windowSum >= s) {
-      minLength = Math.min(minLength, windowEnd - windowStart + 1);
-      windowSum -= arr[windowStart];
-      windowStart += 1;
+      minLength = Math.min(minLength, end - start + 1);
+      windowSum -= arr[start];
+      start++;
     }
   }
-
-  if (minLength === Infinity) {
-    return 0;
-  }
+  if (minLength === Infinity) return 0;
   return minLength;
 }
+
+// OPTION 3
+function smallest_subarray_with_given_sum(arr, num){
+  if (!arr.length) return 0;
+  let windowSum = 0,
+      start = 0,
+      minLength = Infinity,
+      count = 0;
+  
+  for (let end = 0; end < arr.length; end++){
+    windowSum += arr[end];
+    count++;
+    while (windowSum >= num){
+      minLength = Math.min(minLength, count);
+      windowSum = windowSum - arr[start];
+      start++;
+      count--;
+    }
+  }
+  if (minLength === Infinity) return 0;
+  return minLength;
+}
+
 
 // Test
 console.log(`Smallest subarray length: ${smallest_subarray_with_given_sum([2, 1, 5, 2, 3, 2], 7)}`);
