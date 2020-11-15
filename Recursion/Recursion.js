@@ -1,5 +1,5 @@
 // Pure Recursion
-function collectOddValues(arr){
+function oddValues(arr){
   let result = [];
     
   if (arr.length === 0) 
@@ -8,12 +8,12 @@ function collectOddValues(arr){
   if (arr[0] % 2 !== 0)
     result.push(arr[0]);
         
-  result = result.concat(collectOddValues(arr.slice(1)));
+  result = result.concat(oddValues(arr.slice(1)));
   return result;
 }
 
 // Helper Method Recursion
-function collectOddValues(arr1){
+function oddValues(arr1){
   let result = [];
 
   function helper(arr){
@@ -30,4 +30,4 @@ function collectOddValues(arr1){
   return result;
 }
 
-collectOddValues([1,2,3,4,5,6,7,8,9]);
+oddValues([1,2,3,4,5,6,7,8,9]);
