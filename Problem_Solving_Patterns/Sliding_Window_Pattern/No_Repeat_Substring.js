@@ -8,24 +8,25 @@ function no_repeat_substring(str){
       charMap = {};
   // try to extend the range [start, end]
   for (let end = 0; end < str.length; end++){
-    const rightChar = str[end];
+    const char = str[end];
     // if the map already contains the 'rightChar', shrink the window from the beginning so that
     // we have only one occurrence of 'rightChar'
-    if (rightChar in charMap){
+    if (char in charMap){
       // in the current window, we will not have any 'rightChar' after its previous index
       // and if 'start' is already ahead of the last index of 'rightChar', we'll keep 'start'
-      start = Math.max(start, charMap[rightChar] + 1);
+      start = Math.max(start, charMap[char] + 1);
     }
     // insert the 'rightChar' into the map
-    charMap[rightChar] = end;
+    charMap[char] = end;
     // remember the maximum length so far
     maxLength = Math.max(maxLength, end - start + 1);
   }
   return maxLength;
 }
 
+
 // Test
-console.log(findLongestSubstring('')); // 0 
+console.log(no_repeat_substring('')); // 0 
 console.log(no_repeat_substring('rithmschool')); // 7
 console.log(no_repeat_substring('thisisawesome')); // 6
 console.log(no_repeat_substring('thecatinthehat')); // 7
