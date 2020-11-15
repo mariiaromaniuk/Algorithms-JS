@@ -1,4 +1,3 @@
-
 // Write a function to check if given integer is a palindrome without using integer.toString().
 // Time Complexity: O(n), Space Complexity: O(1).
 
