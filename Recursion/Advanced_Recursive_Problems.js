@@ -6,7 +6,8 @@ function reverse(str){
 }
 
 // IS PALINDROME
-// Write a function which returns true if the string is a palindrome (reads the same forward and backward). 
+// Write a function which returns true if the string is a 
+// palindrome (reads the same forward and backward). 
 function isPalindrome(str){
   if (str.length === 1) return true;
   if (str.length === 2) return str[0] === str[1];
@@ -16,7 +17,9 @@ function isPalindrome(str){
 }
 
 // SOME RECURSIVE
-// Write a function which accepts an array and a callback. The function returns true if a single value in the array returns true when passed to the callback.
+// Write a function which accepts an array and a callback. 
+// The function returns true if a single value in the array 
+// returns true when passed to the callback.
 function someRecursive(array, callback) {
   if (array.length === 0) return false;
   if (callback(array[0])) return true;
@@ -24,7 +27,8 @@ function someRecursive(array, callback) {
 }
 
 // FLATTEN
-// Write a function which accepts an array of arrays and returns a new array with all values flattened.
+// Write a function which accepts an array of arrays and 
+// returns a new array with all values flattened.
 function flatten(oldArr){
   let newArr = [];
   for (let i = 0; i < oldArr.length; i++){
@@ -72,7 +76,8 @@ function capitalizeFirst (array){
 }
 
 // STRINGIFY NUMBERS 
-// Write a function which takes in an object and finds all of the values which are numbers and converts them to strings.
+// Write a function which takes in an object and finds all of the 
+// values which are numbers and converts them to strings.
 function stringifyNumbers(obj){
   let newObj = {};
   for (let key in obj){
@@ -87,7 +92,8 @@ function stringifyNumbers(obj){
 }
 
 // COLLECT STRINGS - Recursion Helper
-// Write a function which accepts an object and returns an array of all the values in the object that have a typeof string
+// Write a function which accepts an object and returns an array 
+// of all the values in the object that have a typeof string
 function collectStrings(obj){
   let stringsArr = [];
 
