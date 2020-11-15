@@ -24,21 +24,17 @@ function max_sub_array_of_size_k(k, arr){
 
 
 // OPTION 2 --> O(n), O(1)
-function max_sub_array_of_size_k(k, arr){
-  if (k > arr.length)
+function maxSubarraySum(num, arr){
+  if (num > arr.length) 
     return null;
-  
-  let maxSum = 0,
-    windowSum = 0,
-    windowStart = 0;
-
-  for (windowEnd = 0; windowEnd < arr.length; windowEnd++){
-    windowSum += arr[windowEnd]; // add the next element
+  let maxSum = 0, windowSum = 0, start = 0;
+  for (let end = 0; end < arr.length; end++){
+    windowSum += arr[end];
     // slide the window, we don't need to slide if we've not hit the required window size of 'k'
-    if (windowEnd >= k - 1){
-      maxSum = Math.max(maxSum, windowSum);
-      windowSum -= arr[windowStart]; // subtract the element going out
-      windowStart++; // slide the window ahead
+    if (end >= num-1){
+      maxSum = Math.max(windowSum, maxSum); 
+      windowSum = windowSum - arr[start]; // subtract the element going out
+      start++; // slide the window ahead
     }
   }
   return maxSum;
