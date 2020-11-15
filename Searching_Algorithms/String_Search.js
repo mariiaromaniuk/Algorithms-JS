@@ -1,4 +1,5 @@
-// Write a function that takes in 2 strings. First string is the longer string, second string is the pattern we're looking for.  
+// Write a function that takes in 2 strings. First string is the longer string, 
+// second string is the pattern we're looking for.  
 // If string match return count of matching, else - return 0.
 
 function stringSearch(str1, str2){
