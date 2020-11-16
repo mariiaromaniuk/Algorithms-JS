@@ -3,41 +3,42 @@
 // Output: [[1,5], [7,9]] -> Since the first two intervals [1,4] and [2,5] overlap, we merged them into one [1,5].
 
 class Interval {
-  constructor(start, end) {
+  constructor(start, end){
     this.start = start;
     this.end = end;
   }
-
-  print_interval() {
+  
+  print_interval(){
     process.stdout.write(`[${this.start}, ${this.end}]`);
   }
 }
 
-
-function merge(intervals) {
-  if (intervals.length < 2) {
+function merge(intervals){
+  if (intervals. length < 2) 
     return intervals;
-  }
-  // sort the intervals on the start time
+  // sort the intervals on the start time 
   intervals.sort((a, b) => a.start - b.start);
 
-  const mergedIntervals = [];
+  const mergedIntervals = []; 
   let start = intervals[0].start,
-    end = intervals[0].end;
-  for (i = 1; i < intervals.length; i++) {
-    const interval = intervals[i];
-    if (interval.start <= end) { // overlapping intervals, adjust the 'end'
-      end = Math.max(interval.end, end);
-    } else { // non-overlapping interval, add the previous interval and reset
+      end = intervals[0].end;
+
+  for (let i = 1; i < intervals.length; i++){
+    // overlapping intervals, adjust the 'end'
+    if (intervals[i].start <= end){
+      end = Math.max(intervals[i].end, end);
+    // non-overlapping interval, add the previous interval 
+    } else { 
       mergedIntervals.push(new Interval(start, end));
-      start = interval.start;
-      end = interval.end;
+      start = intervals[i].start;
+      end = intervals[i].end;
     }
   }
   // add the last interval
   mergedIntervals.push(new Interval(start, end));
   return mergedIntervals;
 }
+
 
 // Test
 process.stdout.write('Merged intervals: ');
