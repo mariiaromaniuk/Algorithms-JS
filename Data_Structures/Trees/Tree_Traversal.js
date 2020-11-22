@@ -42,7 +42,7 @@ class BinarySearchTree {
   // Time: O(n), Space: O(w) where w is the maximum width of the tree
   // Use less space in the call stack (gueue) for thin and long trees
   
-  // 1. create a queue & a variable (aaray) to store the values of nodes visited
+  // 1. create a queue and an array (to store the values of visited nodes)
   // 2. place the root node in the queue
   // 3. loop as long as there is anything in the queue
   // 4. dequeue a node from the queue and push the value of the node into the variable that stores the nodes
