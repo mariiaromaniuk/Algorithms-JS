@@ -18,8 +18,7 @@ class LinkedList{
     if (!this.head){
       this.head = node;
       this.tail = node;
-    } 
-    else {
+    } else {
       node.next = this.head;
       this.head = node;
     }
@@ -31,8 +30,7 @@ class LinkedList{
     if (!this.head){
       this.head = node;
       this.tail = node;
-    } 
-    else {
+    } else {
       this.tail.next = node;
       this.tail = node
     }
@@ -52,7 +50,7 @@ class LinkedList{
       return 'List is empty.'
     else if (!this.head.next)
       this.head = null;
-    else{
+    else {
       let p = this.head;
       while (p.next.next)
         p = p.next;
