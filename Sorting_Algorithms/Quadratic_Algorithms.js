@@ -45,11 +45,12 @@ function selectionSort(arr){
 // Time: O(n^2), Space: O(1)
 function insertionSort(arr){
   for (let i = 1; i < arr.length; i++){
-    let curr = arr[i];
-    for (let j = i-1; j >= 0 && arr[j] > curr; j--){
-        arr[j+1] = arr[j];
+    let j = i - 1;
+    while (j >= 0 && arr[j] > arr[i]){
+      arr[j + 1] = arr[j];
+      j--;
     }
-    arr[j+1] = curr;
+    arr[j + 1] = arr[i];
   }
   return arr;
 }
