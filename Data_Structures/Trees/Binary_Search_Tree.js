@@ -12,28 +12,28 @@ class BinarySearchTree {
   }
     
   // Insert value to the tree
-  insert(val) {
-    const node = new Node(val);
+  insert(val){
+    const newNode = new Node(val);
     if (!this.root){
-      this.root = node;
+      this.root = newNode;
       return this;
     }
-    else {
-      let p = this.root;
-      if (val === p.val){
+    let curr = this.root;
+    while (curr){
+      if (val === curr.val) 
         return undefined;
-      } 
-      else if (val < p.val){
-        while (val < p.val && p.left)
-          p = p.left;
-        node.left = p.left;
-        p.left = node;
-      } 
-      else {
-        while (val > p.val && p.right)
-          p = p.right;
-        node.right = p.right;
-        p.right = node;
+      if (val < curr.val){
+        if (!curr.left){
+          curr.left = newNode;
+          return this;
+        }
+        curr = curr.left;
+      } else {
+        if (!curr.right){
+          curr.right = newNode;
+          return this;
+        } 
+        curr = curr.right;
       }
     }
   }
