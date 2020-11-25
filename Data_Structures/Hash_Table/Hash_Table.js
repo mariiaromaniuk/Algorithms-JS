@@ -76,9 +76,21 @@ ht.keys().forEach(function(key){
   console.log(ht.get(key));
 })
 
-
 // Algorithm   Average   Worst 
 // Space        O(n)      O(n)
 // Search       O(1)      O(n)
 // Insert       O(1)      O(n)
 // Delete       O(1)      O(n)
+
+
+
+// -------------------------------------------------------
+// Simplistic version:
+function hash(obj){
+  // Some unique object-dependent key
+  return obj.totallyUniqueEmployeeIdKey; // Just an example
+}
+
+let dict = {};
+dict[hash(obj1)] = obj1;
+dict[hash(obj2)] = obj2;
