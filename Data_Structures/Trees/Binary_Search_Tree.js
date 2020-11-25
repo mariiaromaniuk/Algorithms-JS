@@ -116,6 +116,26 @@ function height(node){
   return Math.max(leftHeight, rightHeight) + 1;
 }
 
+// Min value in a BST
+function minNode(node){
+  if (!node)
+    return 0;
+  if (node.left)
+    return minNode(node.left);
+  return node.val;
+}
+
+// Max value in a BST
+function maxNode(node){
+  if (!node)
+    return 0;
+  if (node.right)
+    return maxNode(node.right);
+  return node.val;
+}
+
+
+
 function deleteVal(root, val){ 
   if (!root)
       return 'Tree is empty.';
