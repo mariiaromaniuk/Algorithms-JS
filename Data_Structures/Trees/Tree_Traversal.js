@@ -42,13 +42,13 @@ class BinarySearchTree {
   // Time: O(n), Space: O(w) where w is the maximum width of the tree
   // Use less space in the call stack (gueue) for thin and long trees
   
-  // 1. create a queue and an array (to store the values of visited nodes)
+  // 1. create a queue and array 'visited' (to store the values of visited nodes)
   // 2. place the root node in the queue
   // 3. loop as long as there is anything in the queue
-  // 4. dequeue a node from the queue and push the value of the node into the variable that stores the nodes
-  // 5. if there is a left property on the node dequeued, add it to the queue
-  // 6. if there is a right property on teh node dequeued - add it to the queue
-  // 7. return the variable that stores the values
+  // 4. dequeue a node from the queue and push its value into visited array
+  // 5. if there is a left value of dequeued node - add it to the queue
+  // 6. if there is a right  value of dequeued node - add it to the queue
+  // 7. return the visited array
   
   // To implement Queue we can simply use an array (instead of Queue class) + arr.push() and arr.shift()
   // arr.shift() → removes the first element from an array and returns that removed element.
@@ -59,6 +59,9 @@ class BinarySearchTree {
         queue = []; 
     queue.push(node);
     
+    // dequeue a node from the queue and push its value into visited
+    // if there is a left val of this node - add it to the queue
+    // if there is a right val of this node - add it to the queue
     while (queue.length){
       node = queue.shift();
       visited.push(node.val);
@@ -66,9 +69,9 @@ class BinarySearchTree {
          queue.push(node.left);
       if (node.right) 
          queue.push(node.right);
-      }
+    }
     return visited;
-   }
+  }
 
   // DEPTH FIRST SEARCH
   // Time: O(n), Space: O(h) where h is the maximum width of the tree
