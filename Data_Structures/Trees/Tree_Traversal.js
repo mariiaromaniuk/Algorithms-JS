@@ -90,7 +90,7 @@ class BinarySearchTree {
   DFS_PreOrder(){
     let visited = [];
     function traverse(node){
-      visited.push(node.value);
+      visited.push(node.val);
       if (node.left) 
          traverse(node.left);
       if (node.right) 
@@ -107,7 +107,7 @@ class BinarySearchTree {
     function traverse(node){
       if (node.left) 
          traverse(node.left);
-      visited.push(node.value);
+      visited.push(node.val);
       if (node.right) 
          traverse(node.right);
     }
@@ -123,7 +123,7 @@ class BinarySearchTree {
          traverse(node.left);
       if (node.right) 
          traverse(node.right);
-      visited.push(node.value);
+      visited.push(node.val);
     }
     traverse(this.root);
     return visited;
