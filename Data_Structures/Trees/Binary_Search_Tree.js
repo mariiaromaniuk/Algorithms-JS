@@ -38,46 +38,6 @@ class BinarySearchTree {
     }
   }
 
-  // Remove value from the tree
-  // Case 1: The node to be deleted is a leaf.
-  // Case 2: The node to be deleted has one child attached to it (left or right).
-  // Case 4: The node to be deleted has both children.
-  remove(val){ 
-    // root is re-initialized with a root of a modified tree. 
-    this.root = this.removeNode(this.root, val); 
-  } 
-  // Method to remove node with a given value
-  // it recur over the tree to find the val and removes it 
-  removeNode(node, val){ 
-    if (!node) 
-      return 'Tree is empty.'; 
-    else if (val < node.val)
-      node.left = this.removeNode(node.left, val); 
-    else if (val > node.val)
-      node.right = this.removeNode(node.right, val); 
-    else { 
-      // Deleting node with no children 
-      if (!node.left && !node.right)
-        node = null; 
-      // Deleting node with one child 
-      if (!node.left) node = node.right; 
-      else if (!node.right) node = node.left; 
-
-      // Deleting node with two children 
-      let s = node.left;
-      let trail = null;
-      while (s.right) {
-        trail = s;
-        s = s.right;
-      }
-      node.val = s.val;
-      if (!trail) // if it did not move
-        node.left = s.left;
-      else
-        trail.right = s.left;
-    } 
-  }
-    
   // Find value in the tree
   search(val){
     if (!this.root)
@@ -93,17 +53,123 @@ class BinarySearchTree {
     }
     return false;
   }
+
+  // Remove value from the tree
+  // Case 1: The node to be deleted is a leaf.
+  // Case 2: The node to be deleted has one child attached to it (left or right).
+  // Case 4: The node to be deleted has both children.
+  deleteNode(val){
+   // If a node is successfully removed, a reference will be received.
+   return !(deleteNodeHelper(this.root, val) === false);
+  }
+}
+
+/*
+ Takes root and key and recursively searches for the key.
+ If it finds the key, there could be 3 cases:
+ 
+ 1. This node is a leaf node.
+ 
+ Example: Removing F
+      A
+     / \
+    B   C
+   /   / \
+  D   E   F
+ 
+  To remove it, we can simply remove its parent's connection to it.
+ 
+       A
+      / \
+     B   C
+    /    /
+   D    E
+ 
+  2. This node is in between the tree somewhere with one child.
+ 
+  Example: Removing B
+        A
+       / \
+      B   C
+     /   / \
+    D   E   F
+ 
+  To remove it, we can simply make the child node replace the parent node in the above connection
+        A
+       / \
+      D   C
+         / \
+        E   F
+ 
+  3. This node has both children. This is a tricky case.
+ 
+  Example: Removing C
+ 
+         A
+        / \
+       B   C
+      /   / \
+     D   E   F
+        /   / \
+       G   H   I
+ 
+  In this case, we need to find either a successor or a predecessor of the node and replace this node with
+  that. For example, If we go with the successor, its successor will be the element just greater than it,
+  ie, the min element in the right subtree. So after deletion, the tree would look like:
+ 
+         A
+        / \
+       B   H
+      /   / \
+     D   E   F
+        /     \
+       G       I
+ 
+  To remove this element, we need to find the parent of the successor, break their link, make successor's left
+  and right point to current node's left and right. The easier way is to just replace the data from node to be
+  deleted with successor and delete the sucessor.
+ */
+
+function deleteNodeHelper(node, val){
+  if (!node) 
+    return false;
+  if (val < node.val){
+    node.left = deleteNodeHelper(node.left, val);
+    return node;
+  } else if (val > node.val){
+    node.right = deleteNodeHelper(node.right, val);
+    return node;
+  } else {
+    // 1. No children: leaf node
+    if (!node.left && !node.right){
+      node = null;
+      return node;
+    }
+    // 2. Single Child 
+    if (!node.left) return node.right;
+    if (!node.right) return node.left;
+
+    // 3. Both children, so need to find successor
+    let curr = node.right;
+    while (curr.left){
+      curr = curr.left;
+    }
+    node.val = curr.val;
+    // Delete the value from right subtree
+    node.right = deleteNodeHelper(node.right, curr.val);
+    return node;
+  }
 }
 
 // Check if it's a valid BST
-function validate(root){ 
-  if (!root)  
+function validate(node){ 
+  if (!node)  
     return true;  
-  if (root.left && root.left.val > root.val)  
+  if (node.left && node.left.val > node.val)  
     return false;  
-  if (root.right && root.right.val < root.val)  
+  if (node.right && node.right.val < node.val)  
     return false;  
-  if (!validate(root.left) || !validate(root.right))  
+  if (!validate(node.left) || !validate(node.right))  
     return false;   
   return true;  
 }
@@ -130,7 +196,7 @@ function maxNode(node){
   if (!node)
     return 0;
   if (node.right)
-    return maxNode(node.right);
+    return maxNode(node.right)
   return node.val;
 }
 
@@ -147,39 +213,6 @@ function printAncestor(node, target){
 
 
 
-function deleteVal(root, val){ 
-  if (!root)
-      return 'Tree is empty.';
-  else if (root.val < val)
-      deleteVal(root.right, val);
-  else if (root.val > val)
-      deleteVal(root.left, val);
-  else
-      deleteNode(root);
-}
-
-function deleteNode(p){  // p is a real tree branch (not just pointer)
-  let s = p;   // want to delete p, so we need to save it to s
-  if (!p.left)
-    p = p.right;
-  else if (!p.right)
-    p = p.left;
-  else {
-    s = p.left;
-    let trail;
-    while (s.right) {
-      trail = s;
-      s = s.right;
-    }
-    p.val = s.val;
-    if (!trail) // if it did not move
-      p.left = s.left;
-    else
-      trail.right = s.left;
-  }
-}
-
-
 // Test
 const bst = new BinarySearchTree();
 bst.insert(10);
@@ -190,7 +223,8 @@ bst.insert(7);
 bst.insert(6);
 console.log(bst.search(10));
 console.log(bst.search(6));
-console.log(bst.remove(5));
+console.log(bst.deleteNode(5));
+console.log(bst.search(5));
 console.log(bst);
 
 
