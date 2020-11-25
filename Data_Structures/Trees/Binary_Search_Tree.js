@@ -68,7 +68,7 @@ class BinarySearchTree {
  Takes root and key and recursively searches for the key.
  If it finds the key, there could be 3 cases:
  
- 1. This node is a leaf node: Removing F
+ 1. This node is a leaf node. Example: Removing F
  
          A
         / \
@@ -84,7 +84,7 @@ class BinarySearchTree {
       /    /
      D    E
  
-  2. This node is in between the tree somewhere with one child: Removing B
+  2. This node is in between the tree somewhere with one child. Example: Removing B
   
          A
         / \
@@ -100,7 +100,7 @@ class BinarySearchTree {
           / \
          E   F
  
-  3. This node has both children. This is a tricky case: Removing C
+  3. This node has both children. This is a tricky case. Example: Removing C
  
          A
         / \
