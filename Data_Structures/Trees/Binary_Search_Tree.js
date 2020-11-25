@@ -58,9 +58,9 @@ class BinarySearchTree {
   // Case 1: The node to be deleted is a leaf.
   // Case 2: The node to be deleted has one child attached to it (left or right).
   // Case 4: The node to be deleted has both children.
-  deleteNode(val){
+  delete(val){
    // If a node is successfully removed, a reference will be received.
-   return !(deleteNodeHelper(this.root, val) === false);
+   return !(deleteNode(this.root, val) === false);
   }
 }
 
@@ -127,14 +127,14 @@ class BinarySearchTree {
   deleted with successor and delete the sucessor.
  */
 
-function deleteNodeHelper(node, val){
+function deleteNode(node, val){
   if (!node) 
     return false;
   if (val < node.val){
-    node.left = deleteNodeHelper(node.left, val);
+    node.left = deleteNode(node.left, val);
     return node;
   } else if (val > node.val){
-    node.right = deleteNodeHelper(node.right, val);
+    node.right = deleteNode(node.right, val);
     return node;
   } else {
     // 1. No children: leaf node
@@ -153,7 +153,7 @@ function deleteNodeHelper(node, val){
     }
     node.val = curr.val;
     // Delete the value from right subtree
-    node.right = deleteNodeHelper(node.right, curr.val);
+    node.right = deleteNode(node.right, curr.val);
     return node;
   }
 }
@@ -220,7 +220,7 @@ bst.insert(7);
 bst.insert(6);
 console.log(bst.search(10));
 console.log(bst.search(6));
-console.log(bst.deleteNode(5));
+console.log(bst.delete(5));
 console.log(bst.search(5));
 console.log(bst);
 
