@@ -46,8 +46,8 @@ class BinarySearchTree {
   // 2. place the root node in the queue
   // 3. loop as long as there is anything in the queue
   // 4. dequeue a node from the queue and push its value into visited array
-  // 5. if there is a left value of dequeued node - add it to the queue
-  // 6. if there is a right  value of dequeued node - add it to the queue
+  // 5. if the node has a left child - add it to the queue
+  // 6. if the node has a right child - add it to the queue
   // 7. return the visited array
   
   // To implement Queue we can simply use an array (instead of Queue class) + arr.push() and arr.shift()
@@ -69,22 +69,21 @@ class BinarySearchTree {
          queue.push(node.left);
       if (node.right) 
          queue.push(node.right);
-    }
+      }
     return visited;
-  }
+   }
 
   // DEPTH FIRST SEARCH
   // Time: O(n), Space: O(h) where h is the maximum width of the tree
   // Use less space in the call stack (gueue) for wide trees
   
-  // 1. create a variable to sotre the values of the nodes visited
-  // 2. store the root of the BST in a variable called current
-  // 3. write a helper function that accepts a node
-  // 4. push the value of the node to the variable that stores the values
-  // 5. if the node has a left property, call the helper function with the left property on the node
-  // 6. if the node has a right property, call the helper function with the right prperty on the node
-  // 7. invoke the helper function with the current variable
-  // 8. return the array of values 
+  // 1. create an array 'visited' to store the values of visited nodes
+  // 2. write a helper function that accepts a node
+  // 3. push the value of the node to 'visited' array
+  // 4. if the node has a left child, recursively call the helper function on the left child
+  // 5. if the node has a right child, recursively call the helper function on the right child
+  // 6. invoke the helper function with the current node
+  // 7. return the array of values 
  
   // DFS Pre-order (recursive, returns array of all values)
   // Used to duplicate or flatten the tree
