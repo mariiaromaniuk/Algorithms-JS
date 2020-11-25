@@ -68,42 +68,39 @@ class BinarySearchTree {
  Takes root and key and recursively searches for the key.
  If it finds the key, there could be 3 cases:
  
- 1. This node is a leaf node.
+ 1. This node is a leaf node: Removing F
  
- Example: Removing F
-      A
-     / \
-    B   C
-   /   / \
-  D   E   F
+         A
+        / \
+       B   C
+      /   / \
+     D   E   F
  
   To remove it, we can simply remove its parent's connection to it.
  
-       A
-      / \
-     B   C
-    /    /
-   D    E
+         A
+        / \
+       B   C
+      /    /
+     D    E
  
-  2. This node is in between the tree somewhere with one child.
- 
-  Example: Removing B
-        A
-       / \
-      B   C
-     /   / \
-    D   E   F
+  2. This node is in between the tree somewhere with one child: Removing B
+  
+         A
+        / \
+       B   C
+      /   / \
+     D   E   F
  
   To remove it, we can simply make the child node replace the parent node in the above connection
-        A
-       / \
-      D   C
-         / \
-        E   F
+   
+         A
+        / \
+       D   C
+          / \
+         E   F
  
-  3. This node has both children. This is a tricky case.
- 
-  Example: Removing C
+  3. This node has both children. This is a tricky case: Removing C
  
          A
         / \
