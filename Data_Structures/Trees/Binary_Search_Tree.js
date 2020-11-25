@@ -145,7 +145,7 @@ function deleteNodeHelper(node, val){
       node = null;
       return node;
     }
-    // 2. Single Child 
+    // 2. Single child 
     if (!node.left) return node.right;
     if (!node.right) return node.left;
 
