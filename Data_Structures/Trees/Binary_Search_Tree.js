@@ -147,12 +147,16 @@ function deleteNode(node, val){
     if (!node.right) return node.left;
 
     // 3. Both children, so need to find successor
+    // We need to replace target value with the value just greater 
+    // than it -> min value in its right subtree (leaf node)
     let curr = node.right;
     while (curr.left){
+      // find min value in the right subtree (leaf node)
       curr = curr.left;
     }
+    // and replace target with this value
     node.val = curr.val;
-    // Delete the value from right subtree
+    // then delete this min value from right subtree (leaf node)
     node.right = deleteNode(node.right, curr.val);
     return node;
   }
