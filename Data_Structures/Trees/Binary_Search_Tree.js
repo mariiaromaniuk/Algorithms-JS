@@ -82,12 +82,12 @@ class BinarySearchTree {
   search(val){
     if (!this.root)
       return false;
-    let p = this.root;
-    while (p){
-      if (val < p.val)
-        p = p.left;
-      else if (val > p.val)
-        p = p.right;
+    let curr = this.root;
+    while (curr){
+      if (val < curr.val)
+        curr = curr.left;
+      else if (val > curr.val)
+        curr = curr.right;
       else 
         return true;
     }
