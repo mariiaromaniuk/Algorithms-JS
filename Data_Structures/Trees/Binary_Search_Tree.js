@@ -95,6 +95,7 @@ class BinarySearchTree {
   }
 }
 
+// Check if it's a valid BST
 function validate(root){ 
   if (!root)  
     return true;  
@@ -105,6 +106,14 @@ function validate(root){
   if (!validate(root.left) || !validate(root.right))  
     return false;   
   return true;  
+}
+
+// Return height of the tree
+function height(node){
+  if (!node) return 0;
+  let leftHeight = height(node.left);
+  let rightHeight = height(node.right);
+  return Math.max(leftHeight, rightHeight) + 1;
 }
 
 function deleteVal(root, val){ 
