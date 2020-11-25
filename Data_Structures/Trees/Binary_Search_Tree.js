@@ -134,6 +134,17 @@ function maxNode(node){
   return node.val;
 }
 
+// Print all ancestors of a target node
+function printAncestor(node, target){
+  if (!node) return false
+  if (node.val === target) return true;
+  if (printAncestor(node.left, target) || printAncestor(node.rigth, target)){
+    console.log(node.val);
+    return true;
+  }
+  return false;
+}
+
 
 
 function deleteVal(root, val){ 
