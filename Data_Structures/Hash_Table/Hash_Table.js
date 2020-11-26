@@ -18,7 +18,17 @@ class HashTable {
     let index = this.hash(key);
     if (!this.keyMap[index]){
       this.keyMap[index] = [];
+    } else {
+      // check if it's alredy exist and update it
+      for (let i = 0; i < this.keyMap[index].length; i++){
+        if (this.keyMap[index][i][0] === key){
+          this.keyMap[index][i][1] = value;
+          // return here so we're not duplicating this pair at the end
+          return;
+        } 
+      }
     }
+    // add the pair if it's not exist
     this.keyMap[index].push([key, value]);
   }
   
@@ -89,6 +99,7 @@ ht.keys().forEach(function(key){
 
 console.log(" ");
 ht.remove("maroon");
+ht.set("yellow","#000000");
 
 ht.keys().forEach(function(key){
   console.log(key, ": ", ht.get(key));
