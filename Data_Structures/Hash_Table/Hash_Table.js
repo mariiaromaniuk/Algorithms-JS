@@ -33,6 +33,18 @@ class HashTable {
     return undefined;
   }
   
+  remove(key){
+    let index = this.hash(key);
+    if (this.keyMap[index]){
+      for (let i = 0; i < this.keyMap[index].length; i++){
+        if (this.keyMap[index][i][0] === key){
+          this.keyMap[index].splice(i, 1);
+          return;
+        } 
+      }
+    }
+  }
+  
   keys(){
     let keysArr = [];
     for (let i = 0; i < this.keyMap.length; i++){
@@ -60,7 +72,6 @@ class HashTable {
   }
 }
 
-// Test
 let ht = new HashTable(17);
 ht.set("maroon","#800000");
 ht.set("yellow","#FFFF00");
@@ -73,8 +84,15 @@ ht.set("purple","#DDA0DD");
 ht.set("violet","#DDA0DD");
 
 ht.keys().forEach(function(key){
-  console.log(ht.get(key));
-})
+  console.log(key, ": ", ht.get(key));
+});
+
+console.log(" ");
+ht.remove("maroon");
+
+ht.keys().forEach(function(key){
+  console.log(key, ": ", ht.get(key));
+});
 
 // Algorithm   Average   Worst 
 // Space        O(n)      O(n)
