@@ -13,7 +13,7 @@
  meetings [2,3] and [3,6], we need two rooms to hold all the meetings.
 
 
- The algorithm:
+ Algorithm:
  1. Sort all the meetings on their start time.
  2. Create a min-heap to store all the active meetings. This min-heap will also be 
     used to find the active meeting with the smallest end time.
