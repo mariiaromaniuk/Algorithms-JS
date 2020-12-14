@@ -14,9 +14,9 @@ class Interval {
 }
 
 function merge(intervals){
-  if (intervals. length < 2) 
+  if (intervals.length < 2) 
     return intervals;
-  // sort the intervals on the start time 
+  // sort the intervals by the start time 
   intervals.sort((a, b) => a.start - b.start);
 
   const mergedIntervals = []; 
